@@ -15,8 +15,7 @@ main {
   flex: 1;
 }
 
-
-a{
+a {
   text-decoration: none;
 }
 
@@ -51,4 +50,8 @@ a{
 
 .rating span {
   color: #ffc000;
+}
+
+.img-large {
+  max-width: 100%;
 }

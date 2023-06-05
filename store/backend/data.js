@@ -4,7 +4,7 @@ export const data = {
       name: "Nike Slim Shirt",
       slug: "nike-slim-shirt",
       category: "Shirts",
-      image: "/images/p1.jpg", 
+      image: "/images/p1.jpg",
       price: 120,
       countInStock: 10,
       brand: "Nike",
