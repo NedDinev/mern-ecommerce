@@ -1,9 +1,9 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
-import Home from "./components/Home/Home";
-import Product from "./components/Product/Product";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+
+import { Container, Navbar } from "react-bootstrap";
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
         <main>
           <Container>
             <Routes>
-              <Route path="/product/:slug" element={<Product />}></Route>
-              <Route path="/" element={<Home />}></Route>
+              <Route path="/product/:slug" element={<ProductPage />}></Route>
+              <Route path="/" element={<HomePage />}></Route>
             </Routes>
           </Container>
         </main>
