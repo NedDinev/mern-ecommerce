@@ -3,9 +3,16 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 
-import { Container, Navbar } from "react-bootstrap";
+import { Badge, Container, Nav, Navbar } from "react-bootstrap";
+
+import { useContext } from "react";
+
+import { Store } from "./Store";
 
 function App() {
+  const { state } = useContext(Store);
+  const { cart } = state;
+
   return (
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
@@ -15,6 +22,18 @@ function App() {
               <Navbar.Brand as={Link} to="/">
                 MERN ecommerce
               </Navbar.Brand>
+              <Nav to="/cart" className="nav-link">
+                Cart
+                {cart.cartItems.length > 0 && (
+                  <Badge pill bg="danger">
+                    {cart.cartItems.reduce(
+                      (accumulator, currItem) =>
+                        accumulator + currItem.quantity,
+                      0
+                    )}
+                  </Badge>
+                )}
+              </Nav>
             </Container>
           </Navbar>
         </header>
