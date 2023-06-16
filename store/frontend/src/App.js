@@ -5,7 +5,7 @@ import ProductPage from "./pages/ProductPage";
 
 import { Badge, Container, Nav, Navbar } from "react-bootstrap";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { Store } from "./Store";
 import CartPage from "./pages/CartPage";
@@ -13,6 +13,10 @@ import CartPage from "./pages/CartPage";
 function App() {
   const { state } = useContext(Store);
   const { cart } = state;
+
+  useEffect(() => {
+    console.log({ cart });
+  }, [cart]);
 
   return (
     <BrowserRouter>
@@ -23,7 +27,7 @@ function App() {
               <Navbar.Brand as={Link} to="/">
                 MERN ecommerce
               </Navbar.Brand>
-              <Nav to="/cart" className="nav-link">
+              <Nav as={Link} to="/cart" className="nav-link">
                 Cart
                 {cart.cartItems.length > 0 && (
                   <Badge pill bg="danger">
