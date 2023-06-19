@@ -44,9 +44,6 @@ export default function Home() {
     fetchData();
   }, []);
 
-
-
-  
   return (
     <div>
       <Helmet>
