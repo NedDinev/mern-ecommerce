@@ -9,6 +9,7 @@ import { useContext, useEffect } from "react";
 
 import { Store } from "./Store";
 import CartPage from "./pages/CartPage";
+import SigninPage from "./pages/SigninPage";
 
 function App() {
   const { state } = useContext(Store);
@@ -47,6 +48,7 @@ function App() {
             <Routes>
               <Route path="/product/:slug" element={<ProductPage />}></Route>
               <Route path="/cart" element={<CartPage />}></Route>
+              <Route path="/signin" element={<SigninPage />}></Route>
               <Route path="/" element={<HomePage />}></Route>
             </Routes>
           </Container>

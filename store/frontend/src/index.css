@@ -67,3 +67,7 @@ a {
 .img-thumbnail {
   height: 80px;
 }
+
+.small-screen {
+  max-width: 600px;
+}
