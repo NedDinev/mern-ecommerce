@@ -51,13 +51,18 @@ export default function Product() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
 
+  const isOutOfStock = (item) => {
+    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    return quantity <= item.countInStock ? true : false;
+  };
+
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
-      window.alert("Product is out of stock");
       return;
     }
 
@@ -110,7 +115,7 @@ export default function Product() {
                   <Row>
                     <Col>Status:</Col>
                     <Col>
-                      {product.countInStock > 0 ? (
+                      {isOutOfStock(product) ? (
                         <Badge bg="success">In Stock</Badge>
                       ) : (
                         <Badge bg="danger">Unavailable</Badge>
@@ -118,7 +123,7 @@ export default function Product() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                {product.countInStock > 0 && (
+                {isOutOfStock(product) && (
                   <ListGroup.Item>
                     <div className="d-grid">
                       <Button variant="primary" onClick={addToCartHandler}>
