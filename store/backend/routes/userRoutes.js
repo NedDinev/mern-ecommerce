@@ -12,7 +12,7 @@ userRouter.post(
     const user = await User.findOne({ email: req.body.email });
 
     if (user) {
-      if (bcrypt.compare(req.body.password, user.password)) {
+      if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
           _id: user._id,
           name: user.name,
@@ -22,8 +22,8 @@ userRouter.post(
         });
         return;
       }
+      res.status(401).send({ message: "Invalid email or password" });
     }
-    res.status(401).send({ message: "Invalid email or password" });
   })
 );
 
