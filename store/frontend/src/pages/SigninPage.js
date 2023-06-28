@@ -6,7 +6,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
 import { getError } from "../utils";
-import CheckoutSteps from "../components/CheckoutSteps";
 
 export default function SigninPage() {
   const navigate = useNavigate();
