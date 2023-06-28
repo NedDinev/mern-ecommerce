@@ -1,11 +1,12 @@
 import Axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
 import { getError } from "../utils";
+import CheckoutSteps from "../components/CheckoutSteps";
 
 export default function SigninPage() {
   const navigate = useNavigate();
@@ -39,38 +40,42 @@ export default function SigninPage() {
       toast.error(getError(err));
     }
   };
+
   return (
     <Container className="small-container">
       <Helmet>
         <title>Sign In</title>
       </Helmet>
-      <h1 className="my-3">Sign In</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <div className="mb-3">
-          <Button type="submit">Sign In</Button>
-        </div>
-        <div className="mb-3">
-          New customer?{" "}
-          <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
-        </div>
-      </Form>
+      <Row>
+        <Col md={5} className="mx-auto">
+          <h1 className="my-3">Sign In</h1>
+          <Form onSubmit={submitHandler}>
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <div className="mb-3">
+              <Button type="submit">Sign In</Button>
+            </div>
+          </Form>
+          <div className="mb-3">
+            New customer?{" "}
+            <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
+          </div>
+        </Col>
+      </Row>
     </Container>
   );
 }
