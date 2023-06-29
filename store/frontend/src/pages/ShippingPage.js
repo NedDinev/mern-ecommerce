@@ -43,6 +43,7 @@ export default function ShippingPage() {
       "shippingAddress",
       JSON.stringify({ fullName, address, city, postalCode, country })
     );
+    navigate("/payment");
   };
 
   return (
@@ -95,12 +96,10 @@ export default function ShippingPage() {
                 onChange={(e) => setCountry(e.target.value)}
                 required
               />
-            </Form.Group>
-            <div className="mb-3">
-              <Button variant="primary" type="submit">
+              <Button className="mt-3" variant="primary" type="submit">
                 Continue
               </Button>
-            </div>
+            </Form.Group>
           </Col>
         </Row>
       </Form>
