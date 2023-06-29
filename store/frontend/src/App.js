@@ -13,6 +13,7 @@ import { useContext } from "react";
 import { Store } from "./Store";
 import CartPage from "./pages/CartPage";
 import SigninPage from "./pages/SigninPage";
+import SigninPage from "./pages/SignupPage";
 import ShippingPage from "./pages/ShippingPage";
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
               <Route path="/product/:slug" element={<ProductPage />}></Route>
               <Route path="/cart" element={<CartPage />}></Route>
               <Route path="/signin" element={<SigninPage />}></Route>
+              <Route path="/signup" element={<SingupPage />}></Route>
               <Route path="/shipping" element={<ShippingPage />}></Route>
               <Route path="/" element={<HomePage />}></Route>
             </Routes>
