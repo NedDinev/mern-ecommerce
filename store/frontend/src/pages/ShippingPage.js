@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import { Store } from "../Store";
 import { useNavigate } from "react-router-dom";
@@ -46,7 +46,7 @@ export default function ShippingPage() {
   };
 
   return (
-    <div>
+    <Container>
       <Helmet>
         <title>Shipping Address</title>
       </Helmet>
@@ -104,6 +104,6 @@ export default function ShippingPage() {
           </Col>
         </Row>
       </Form>
-    </div>
+    </Container>
   );
 }
