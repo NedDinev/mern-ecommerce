@@ -15,6 +15,7 @@ import CartPage from "./pages/CartPage";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import ShippingPage from "./pages/ShippingPage";
+import PaymentMethodPage from "./pages/PaymentMethodPage";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -24,6 +25,7 @@ function App() {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
   };
 
   return (
@@ -50,7 +52,7 @@ function App() {
                   )}
                 </Nav.Item>
 
-                {console.log({ userInfo })}
+              
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/profile">
@@ -81,6 +83,7 @@ function App() {
               <Route path="/signin" element={<SigninPage />}></Route>
               <Route path="/signup" element={<SignupPage />}></Route>
               <Route path="/shipping" element={<ShippingPage />}></Route>
+              <Route path="/payment" element={<PaymentMethodPage />}></Route>
               <Route path="/" element={<HomePage />}></Route>
             </Routes>
           </Container>
