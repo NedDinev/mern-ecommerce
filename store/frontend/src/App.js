@@ -16,6 +16,7 @@ import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import ShippingPage from "./pages/ShippingPage";
 import PaymentMethodPage from "./pages/PaymentMethodPage";
+import PlaceOrderPage from "./pages/PlaceOrderPage";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -52,7 +53,6 @@ function App() {
                   )}
                 </Nav.Item>
 
-              
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/profile">
@@ -84,6 +84,7 @@ function App() {
               <Route path="/signup" element={<SignupPage />}></Route>
               <Route path="/shipping" element={<ShippingPage />}></Route>
               <Route path="/payment" element={<PaymentMethodPage />}></Route>
+              <Route path="/placeorder" element={<PlaceOrderPage />}></Route>
               <Route path="/" element={<HomePage />}></Route>
             </Routes>
           </Container>
