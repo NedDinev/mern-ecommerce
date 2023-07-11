@@ -18,6 +18,7 @@ import ShippingPage from "./pages/ShippingPage";
 import PaymentMethodPage from "./pages/PaymentMethodPage";
 import PlaceOrderPage from "./pages/PlaceOrderPage";
 import OrderPage from "./pages/OrderPage";
+import OrderHistoryPage from "./pages/OrderHistoryPage";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -35,44 +36,47 @@ function App() {
       <div className="d-flex flex-column site-container">
         <ToastContainer position="bottom-center" limit={1} />
         <header className="App-header">
-          <Navbar bg="dark" variant="dark">
+          <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
               <Navbar.Brand as={Link} to="/">
                 MERN ecommerce
               </Navbar.Brand>
-              <Nav className="me-auto">
-                <Nav.Item as={Link} to="/cart" className="nav-link">
-                  Cart{" "}
-                  {cart.cartItems.length > 0 && (
-                    <Badge pill bg="danger">
-                      {cart.cartItems.reduce(
-                        (accumulator, currItem) =>
-                          accumulator + currItem.quantity,
-                        0
-                      )}
-                    </Badge>
-                  )}
-                </Nav.Item>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto w-100 justify-content-end">
+                  <Nav.Item as={Link} to="/cart" className="nav-link">
+                    Cart{" "}
+                    {cart.cartItems.length > 0 && (
+                      <Badge pill bg="danger">
+                        {cart.cartItems.reduce(
+                          (accumulator, currItem) =>
+                            accumulator + currItem.quantity,
+                          0
+                        )}
+                      </Badge>
+                    )}
+                  </Nav.Item>
 
-                {userInfo ? (
-                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                    <NavDropdown.Item as={Link} to="/profile">
-                      User Profile
-                    </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/orderhistory">
-                      Order History
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={() => signoutHandler()}>
-                      Sign Out
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                ) : (
-                  <Link className="nav-link" to="/signin">
-                    Sign In
-                  </Link>
-                )}
-              </Nav>
+                  {userInfo ? (
+                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                      <NavDropdown.Item as={Link} to="/profile">
+                        User Profile
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/orderhistory">
+                        Order History
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item onClick={() => signoutHandler()}>
+                        Sign Out
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  ) : (
+                    <Link className="nav-link" to="/signin">
+                      Sign In
+                    </Link>
+                  )}
+                </Nav>
+              </Navbar.Collapse>
             </Container>
           </Navbar>
         </header>
@@ -87,6 +91,10 @@ function App() {
               <Route path="/payment" element={<PaymentMethodPage />}></Route>
               <Route path="/placeorder" element={<PlaceOrderPage />}></Route>
               <Route path="/order/:id" element={<OrderPage />}></Route>
+              <Route
+                path="/orderhistory"
+                element={<OrderHistoryPage />}
+              ></Route>
               <Route path="/" element={<HomePage />}></Route>
             </Routes>
           </Container>
