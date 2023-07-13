@@ -90,10 +90,10 @@ export default function ProfilePage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
+        <Form.Group className="mb-3" controlId="confirmPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
-            type="confirmPassword"
+            type="password"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
           />

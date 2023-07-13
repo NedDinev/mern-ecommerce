@@ -52,7 +52,7 @@ userRouter.put(
   "/profile",
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const user = await user.findById(req.user._id);
+    const user = await User.findById(req.user._id);
 
     if (user) {
       user.name = req.body.name || user.name;
@@ -67,7 +67,7 @@ userRouter.put(
         _id: updatedUser._id,
         name: updatedUser.name,
         email: updatedUser.email,
-        isAdmin: updateUser.isAdmin,
+        isAdmin: updatedUser.isAdmin,
         token: generateToken(updatedUser),
       });
     } else {
