@@ -29,6 +29,7 @@ import OrderHistoryPage from "./pages/OrderHistoryPage";
 import ProfilePage from "./pages/ProfilePage";
 import { getError } from "./utils";
 import axios from "axios";
+import SearchBox from "./components/SearchBox";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -74,14 +75,15 @@ function App() {
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
-                <i class="icon-th-list"></i>
+                <i className="icon-th-list"></i>
               </Button>
               <Navbar.Brand as={Link} to="/">
                 MERN ecommerce
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto w-100 justify-content-end">
+                <SearchBox />
+                <Nav className="me-auto w-100 justify-content-end ">
                   <Nav.Item as={Link} to="/cart" className="nav-link">
                     Cart{" "}
                     {cart.cartItems.length > 0 && (
