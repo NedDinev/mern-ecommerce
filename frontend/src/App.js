@@ -30,6 +30,7 @@ import ProfilePage from "./pages/ProfilePage";
 import { getError } from "./utils";
 import axios from "axios";
 import SearchBox from "./components/SearchBox";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -134,7 +135,7 @@ function App() {
             {categories.map((category) => (
               <Nav.Item key={category}>
                 <Link
-                  to={`/search/category=${category}`}
+                  to={`/search?category=${category}`}
                   onClick={() => setSidebarIsOpen(false)}
                 >
                   {category}
@@ -148,6 +149,7 @@ function App() {
             <Routes>
               <Route path="/product/:slug" element={<ProductPage />}></Route>
               <Route path="/cart" element={<CartPage />}></Route>
+              <Route path="/search" element={<SearchPage />}></Route>
               <Route path="/signin" element={<SigninPage />}></Route>
               <Route path="/signup" element={<SignupPage />}></Route>
               <Route path="/shipping" element={<ShippingPage />}></Route>
