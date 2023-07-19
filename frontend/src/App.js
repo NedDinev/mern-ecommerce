@@ -105,6 +105,22 @@ function App() {
                       Sign In
                     </Link>
                   )}
+                  {userInfo && userInfo.isAdmin && (
+                    <NavDropdown title="Admin" id="admin-nav-dropdown">
+                      <Link to="/admin/dashboard">
+                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                      </Link>
+                      <Link to="/admin/productlist">
+                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                      </Link>
+                      <Link to="/admin/orderlist">
+                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                      </Link>
+                      <Link to="/admin/userlist">
+                        <NavDropdown.Item>Users</NavDropdown.Item>
+                      </Link>
+                    </NavDropdown>
+                  )}
                 </Nav>
               </Navbar.Collapse>
             </Container>

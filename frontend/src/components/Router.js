@@ -13,15 +13,20 @@ import OrderHistoryPage from "../pages/OrderHistoryPage";
 import ProfilePage from "../pages/ProfilePage";
 import SearchPage from "../pages/SearchPage";
 import ProtectedRoute from "./ProtectedRoute";
+import DashboardPage from "../pages/DashboardPage";
+import AdminRoute from "./AdminRoute";
 
 export default function Router() {
   return (
     <Routes>
+      <Route path="/" element={<HomePage />}></Route>
       <Route path="/product/:slug" element={<ProductPage />}></Route>
       <Route path="/cart" element={<CartPage />}></Route>
       <Route path="/search" element={<SearchPage />}></Route>
       <Route path="/signin" element={<SigninPage />}></Route>
       <Route path="/signup" element={<SignupPage />}></Route>
+
+      {/* Protected routes */}
       <Route
         path="/shipping"
         element={
@@ -70,7 +75,15 @@ export default function Router() {
           </ProtectedRoute>
         }
       ></Route>
-      <Route path="/" element={<HomePage />}></Route>
+      {/* Admin routes */}
+      <Route
+        path="/admin/dashboard"
+        element={
+          <AdminRoute>
+            <DashboardPage />
+          </AdminRoute>
+        }
+      ></Route>
     </Routes>
   );
 }
