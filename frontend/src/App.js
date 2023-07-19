@@ -107,18 +107,18 @@ function App() {
                   )}
                   {userInfo && userInfo.isAdmin && (
                     <NavDropdown title="Admin" id="admin-nav-dropdown">
-                      <Link to="/admin/dashboard">
-                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                      </Link>
-                      <Link to="/admin/productlist">
-                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                      </Link>
-                      <Link to="/admin/orderlist">
-                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                      </Link>
-                      <Link to="/admin/userlist">
-                        <NavDropdown.Item>Users</NavDropdown.Item>
-                      </Link>
+                      <NavDropdown.Item as={Link} to="/admin/dashboard">
+                        Dashboard
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/admin/productlist">
+                        Products
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/admin/orderlist">
+                        Orders
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/admin/userlist">
+                        Users
+                      </NavDropdown.Item>
                     </NavDropdown>
                   )}
                 </Nav>
