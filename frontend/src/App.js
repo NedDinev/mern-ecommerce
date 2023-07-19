@@ -1,10 +1,7 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import HomePage from "./pages/HomePage";
-import ProductPage from "./pages/ProductPage";
 
 import {
   Badge,
@@ -18,19 +15,11 @@ import {
 import { useContext, useEffect, useState } from "react";
 
 import { Store } from "./Store";
-import CartPage from "./pages/CartPage";
-import SigninPage from "./pages/SigninPage";
-import SignupPage from "./pages/SignupPage";
-import ShippingPage from "./pages/ShippingPage";
-import PaymentMethodPage from "./pages/PaymentMethodPage";
-import PlaceOrderPage from "./pages/PlaceOrderPage";
-import OrderPage from "./pages/OrderPage";
-import OrderHistoryPage from "./pages/OrderHistoryPage";
-import ProfilePage from "./pages/ProfilePage";
+
 import { getError } from "./utils";
 import axios from "axios";
 import SearchBox from "./components/SearchBox";
-import SearchPage from "./pages/SearchPage";
+import Router from "./components/Router";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -146,23 +135,7 @@ function App() {
         </div>
         <main>
           <Container className="mt-5">
-            <Routes>
-              <Route path="/product/:slug" element={<ProductPage />}></Route>
-              <Route path="/cart" element={<CartPage />}></Route>
-              <Route path="/search" element={<SearchPage />}></Route>
-              <Route path="/signin" element={<SigninPage />}></Route>
-              <Route path="/signup" element={<SignupPage />}></Route>
-              <Route path="/shipping" element={<ShippingPage />}></Route>
-              <Route path="/payment" element={<PaymentMethodPage />}></Route>
-              <Route path="/placeorder" element={<PlaceOrderPage />}></Route>
-              <Route path="/profile" element={<ProfilePage />}></Route>
-              <Route path="/order/:id" element={<OrderPage />}></Route>
-              <Route
-                path="/orderhistory"
-                element={<OrderHistoryPage />}
-              ></Route>
-              <Route path="/" element={<HomePage />}></Route>
-            </Routes>
+            <Router />
           </Container>
         </main>
         <footer>
