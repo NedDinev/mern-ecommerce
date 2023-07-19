@@ -83,7 +83,7 @@ export default function SignupPage() {
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
-                type="confirmPassword"
+                type="password"
                 required
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
