@@ -19,6 +19,10 @@ This project is a full-stack e-commerce application built using the MERN stack (
 - Database: MongoDB.
 - Payment Gateway Integration: Paypal, Stripe
 
+### 1.4 Links
+
+- Live Site URL: [Link](https://ned-mern-ecommerce-39b6ffde7c76.herokuapp.com)
+
 ## 2. Getting Started
 ### 2.1 Prerequisites
 Before running the application, ensure you have the following installed on your system:
@@ -62,6 +66,7 @@ Before running the application, ensure you have the following installed on your 
 3. The application will be accessible at `http://localhost:3000` in your web browser.
 
 ### 2.4 Deployment
+The application is deployed on Heroku using a MongoDB Atlas Cluster - [Link](https://ned-mern-ecommerce-39b6ffde7c76.herokuapp.com)
 To deploy the application to a production environment, follow the specific deployment guidelines for the chosen hosting platform. This may involve setting up a production-ready database, configuring environment variables, and using a production web server.
 
 ## 3. Configuration
