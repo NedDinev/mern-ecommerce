@@ -21,6 +21,8 @@ import axios from "axios";
 import SearchBox from "./components/SearchBox";
 import Router from "./components/Router";
 
+
+
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
@@ -110,13 +112,13 @@ function App() {
                       <NavDropdown.Item as={Link} to="/admin/dashboard">
                         Dashboard
                       </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/admin/productlist">
+                      <NavDropdown.Item as={Link} to="/admin/products">
                         Products
                       </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/admin/orderlist">
+                      <NavDropdown.Item as={Link} to="/admin/orders">
                         Orders
                       </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/admin/userlist">
+                      <NavDropdown.Item as={Link} to="/admin/users">
                         Users
                       </NavDropdown.Item>
                     </NavDropdown>

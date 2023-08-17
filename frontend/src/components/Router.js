@@ -15,6 +15,7 @@ import SearchPage from "../pages/SearchPage";
 import ProtectedRoute from "./ProtectedRoute";
 import DashboardPage from "../pages/DashboardPage";
 import AdminRoute from "./AdminRoute";
+import ProductListPage from "../pages/ProductListPage";
 
 export default function Router() {
   return (
@@ -81,6 +82,14 @@ export default function Router() {
         element={
           <AdminRoute>
             <DashboardPage />
+          </AdminRoute>
+        }
+      ></Route>
+      <Route
+        path="/admin/products"
+        element={
+          <AdminRoute>
+            <ProductListPage />
           </AdminRoute>
         }
       ></Route>
