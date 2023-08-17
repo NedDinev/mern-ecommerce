@@ -14,7 +14,7 @@ This project is a full-stack e-commerce application built using the MERN stack (
 - User Roles: The system supports two roles, "customer" and "admin," each with distinct capabilities.
 
 ### 1.3 Technologies Used
-- Frontend: React.js, Redux, React Bootstrap, Axios.
+- Frontend: React.js, React Bootstrap, Axios.
 - Backend: Node.js, Express.js.
 - Database: MongoDB.
 - Payment Gateway Integration: Paypal, Stripe
