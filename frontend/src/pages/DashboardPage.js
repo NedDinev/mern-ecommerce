@@ -33,7 +33,6 @@ export default function DashboardPage() {
 
   const { state } = useContext(Store);
   const { userInfo } = state;
-  console.log({ loading, summary, error });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,6 +50,8 @@ export default function DashboardPage() {
     };
     fetchData();
   }, [userInfo]);
+
+  console.log(summary);
 
   return (
     <div>
@@ -78,11 +79,11 @@ export default function DashboardPage() {
               <Card>
                 <Card.Body>
                   <Card.Title>
-                    {summary.orders && summary.users[0]
+                    {summary.orders && summary.orders[0]
                       ? summary.orders[0].numOrders
                       : 0}
                   </Card.Title>
-                  <Card.Text> Orders</Card.Text>
+                  <Card.Text>Orders</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -91,11 +92,11 @@ export default function DashboardPage() {
                 <Card.Body>
                   <Card.Title>
                     $
-                    {summary.orders && summary.users[0]
+                    {summary.orders && summary.orders[0]
                       ? summary.orders[0].totalSales.toFixed(2)
                       : 0}
                   </Card.Title>
-                  <Card.Text> Orders</Card.Text>
+                  <Card.Text>Orders</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -103,7 +104,7 @@ export default function DashboardPage() {
           <div className="my-3">
             <h2>Sales</h2>
             {summary.dailyOrders.length === 0 ? (
-              <MessageBox>No Sale</MessageBox>
+              <MessageBox>No Sales</MessageBox>
             ) : (
               <Chart
                 width="100%"
