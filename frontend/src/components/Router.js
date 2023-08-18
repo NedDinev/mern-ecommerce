@@ -16,6 +16,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import DashboardPage from "../pages/DashboardPage";
 import AdminRoute from "./AdminRoute";
 import ProductListPage from "../pages/ProductListPage";
+import ProductEditPage from "../pages/ProductEditPage";
 
 export default function Router() {
   return (
@@ -90,6 +91,15 @@ export default function Router() {
         element={
           <AdminRoute>
             <ProductListPage />
+          </AdminRoute>
+        }
+      ></Route>
+
+      <Route
+        path="/admin/product/:id"
+        element={
+          <AdminRoute>
+            <ProductEditPage />
           </AdminRoute>
         }
       ></Route>
