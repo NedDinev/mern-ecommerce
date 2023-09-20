@@ -17,6 +17,7 @@ import DashboardPage from "../pages/DashboardPage";
 import AdminRoute from "./AdminRoute";
 import ProductListPage from "../pages/ProductListPage";
 import ProductEditPage from "../pages/ProductEditPage";
+import OrderListPage from "../pages/OrderListPage";
 
 export default function Router() {
   return (
@@ -100,6 +101,15 @@ export default function Router() {
         element={
           <AdminRoute>
             <ProductEditPage />
+          </AdminRoute>
+        }
+      ></Route>
+
+      <Route
+        path="/admin/orders"
+        element={
+          <AdminRoute>
+            <OrderListPage />
           </AdminRoute>
         }
       ></Route>
